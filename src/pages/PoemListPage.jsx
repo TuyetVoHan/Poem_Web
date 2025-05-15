@@ -1,52 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react"; // Bỏ useEffect vì không cần fetch nữa
 import { Link } from "react-router-dom";
 import "../styles/PoemListPage.css";
+import poemsData from "../data/poemsData"; // *** IMPORT DỮ LIỆU THƠ ***
 
 function PoemListPage() {
-  // Ví dụ dữ liệu thơ (nên lấy từ state, context hoặc API)
-  const [poems, setPoems] = useState([
-    {
-      id: "bai-tho-1",
-      title: "Ái",
-      date: "2025-04-05",
-      excerpt: "Cuộc sống vốn chẳng dài...",
-    },
-    {
-      id: "bai-tho-2",
-      title: "Chấp niệm",
-      date: "2025-04-03",
-      excerpt: "Có những chuyện bình thường...",
-    },
-    {
-      id: "bai-tho-3",
-      title: "Dạo biển",
-      date: "2025-03-23",
-      excerpt: "Gió kéo ta đi trên biển dạo...",
-    },
-    {
-      id: "bai-tho-4",
-      title: "Mưa",
-      date: "2025-04-28",
-      excerpt: "Trời kia xám xịt cơn mưa rào...",
-    },
-    {
-      id: "bai-tho-5",
-      title: "Tính",
-      date: "2025-044-18",
-      excerpt: "Mình đâu buồn linh tinhtinh...",
-    },
-    {
-      id: "bai-tho-5",
-      title: "Mẹ",
-      date: "2025-03-23",
-      excerpt: "Hôm nay con lại nhớ...",
-    },
-    // ... thêm các bài thơ khác
-  ]);
-  const [searchTerm, setSearchTerm] = useState("");
-  const [filterCategory, setFilterCategory] = useState(""); // Ví dụ bộ lọc
+  // *** SỬ DỤNG TRỰC TIẾP poemsData THAY VÌ useState CHO DỮ LIỆU GỐC ***
+  // const [poems, setPoems] = useState(poemsData); // Không cần setPoems nữa nếu không có nhu cầu thay đổi poemsData gốc
+  const poems = poemsData; // Sử dụng trực tiếp
 
-  // Logic lọc và tìm kiếm (ví dụ đơn giản)
+  const [searchTerm, setSearchTerm] = useState("");
+  // const [filterCategory, setFilterCategory] = useState(""); // Giữ lại nếu bạn muốn phát triển bộ lọc
+
+  // Logic lọc và tìm kiếm (giữ nguyên)
   const filteredPoems = poems.filter(
     (poem) => poem.title.toLowerCase().includes(searchTerm.toLowerCase())
     // Thêm logic lọc theo category nếu có
@@ -76,6 +41,7 @@ function PoemListPage() {
                 <Link to={`/poems/${poem.id}`}>{poem.title}</Link>
               </h2>
               <p className="poem-date">Posted date: {poem.date}</p>
+              {/* Sử dụng excerpt từ poemsData */}
               <p className="poem-excerpt">{poem.excerpt}</p>
               <Link to={`/poems/${poem.id}`} className="read-more-link">
                 Read more...

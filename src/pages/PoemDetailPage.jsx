@@ -1,75 +1,52 @@
-import React, { useState, useEffect } from "react"; // Thêm useState
+import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import "../styles/PoemDetailPage.css";
+import poemsData from "../data/poemsData"; // *** IMPORT DỮ LIỆU THƠ ***
 
 function PoemDetailPage() {
   const { poemId } = useParams();
   const [poem, setPoem] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true); // Giữ lại loading để mô phỏng hoặc xử lý bất đồng bộ nếu có
   const [error, setError] = useState(null);
-  // *** BƯỚC 1: Thêm state cho ô góp ý ***
   const [feedback, setFeedback] = useState("");
 
   useEffect(() => {
-    const fetchPoemData = (id) => {
-      // ... (Phần fetch dữ liệu giữ nguyên) ...
-      console.log("Fetching data for poem:", id);
-      const allPoems = {
-        "bai-tho-1": {
-          title: "Ái",
-          date: "2025-04-05",
-          content:
-            "Cuộc sống vốn chẳng dài\nBỏ những lời ngoài tai\nCuộc đời thêm chút ái\nSống ung dung tự tại.",
-        },
-        "bai-tho-2": {
-          title: "Chấp niệm",
-          date: "2025-04-03",
-          content:
-            "Có những chuyện bình thường\nVốn chẳng cần bận tâm\nMà sao lòng cứ mãi\nNỗi vấn vương âm thầm.",
-        },
-        "bai-tho-3": {
-          title: "Dạo biển",
-          date: "2025-03-23",
-          content:
-            "Gió kéo ta đi trên biển dạo\nTrăng khuyết mỉm cười đẹp biết bao\nSóng tấu du dương bản nhạc nào\nNhẹ nhàng theo gió lướt thanh tao.",
-        },
-      };
-      setTimeout(() => {
-        const foundPoem = allPoems[id];
-        if (foundPoem) {
-          setPoem(foundPoem);
-          setError(null);
-        } else {
-          setError("This poem was not found.");
-          setPoem(null);
-        }
-        setLoading(false);
-      }, 500);
-    };
+    setLoading(true); // Bắt đầu loading
 
-    setLoading(true);
-    fetchPoemData(poemId);
+    // *** TÌM BÀI THƠ TRONG poemsData THAY VÌ FETCH GIẢ LẬP ***
+    const foundPoem = poemsData.find((p) => p.id === poemId);
+
+    // Giả lập một chút độ trễ để giống với việc tải dữ liệu
+    const timer = setTimeout(() => {
+      if (foundPoem) {
+        setPoem(foundPoem);
+        setError(null);
+      } else {
+        setError("This poem was not found.");
+        setPoem(null);
+      }
+      setLoading(false);
+    }, 300); // Độ trễ 300ms, bạn có thể bỏ đi nếu muốn
+
+    return () => clearTimeout(timer); // Cleanup timer khi component unmount hoặc poemId thay đổi
   }, [poemId]);
 
-  // *** BƯỚC 2: Hàm xử lý khi gửi góp ý ***
   const handleFeedbackSubmit = (e) => {
-    e.preventDefault(); // Ngăn form submit theo cách truyền thống (nếu dùng thẻ form)
+    e.preventDefault();
     if (feedback.trim() === "") {
       alert("Please enter your comment.");
       return;
     }
-    // Xử lý gửi góp ý (hiện tại chỉ log ra console)
     console.log(
       `Góp ý cho bài thơ "${poem?.title}" (ID: ${poemId}):`,
       feedback
     );
-    // Thông báo giả lập gửi thành công
     alert("Cảm ơn bạn đã góp ý!");
-    setFeedback(""); // Xóa nội dung trong ô nhập liệu
+    setFeedback("");
   };
 
   if (loading) return <p>Loading poem...</p>;
-  if (error) return <p>Eror: {error}</p>;
+  if (error) return <p>Error: {error}</p>; // Sửa lỗi chính tả "Eror" -> "Error"
   if (!poem) return <p>Poem not found.</p>;
 
   return (
@@ -83,10 +60,10 @@ function PoemDetailPage() {
           <p className="poem-meta">
             Author: Tuyet Vo Han | Posted date: {poem.date}
           </p>
+          {/* Sử dụng poem.content từ poemsData */}
           <pre className="poem-text">{poem.content}</pre>
         </article>
 
-        {/* *** BƯỚC 3: Thêm khu vực nhập góp ý *** */}
         <section className="feedback-section">
           <h3>Comments on the poem</h3>
           <textarea

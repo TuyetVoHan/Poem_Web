@@ -27,35 +27,38 @@ function AboutPage() {
         </div>
       </section>
 
-      <section className="personal-info">
-        <h2>🌸 Introduce myself</h2>
-        <ul>
-          <li>Year of birth: 2004</li>
-          <li>Hometown: Hai Duong</li>
-          <li>Phone number: 03352926604</li>
-        </ul>
-      </section>
+      {/* Thêm một div container cho ba cột */}
+      <div className="info-columns-container">
+        <section className="personal-info column">
+          <h2>🌸 Introduce myself</h2>
+          <ul>
+            <li>Year of birth: 2004</li>
+            <li>Hometown: Hai Duong</li>
+            <li>Phone number: 03352926604</li>
+          </ul>
+        </section>
 
-      <section className="favorite-genres">
-        <h2>🖋️ Favorite genre</h2>
-        <ul>
-          <li>5-word poem</li>
-          <li>Seven-word quatrain</li>
-          <li>Six-eight poems</li>
-          <li>free verse</li>
-        </ul>
-      </section>
+        <section className="favorite-genres column">
+          <h2>🖋️ Favorite genre</h2>
+          <ul>
+            <li>5-word poem</li>
+            <li>Seven-word quatrain</li>
+            <li>Six-eight poems</li>
+            <li>free verse</li>
+          </ul>
+        </section>
 
-      <section className="hobbies-section">
-        <h2>🎨 Hobbies</h2>
-        <ul>
-          <li>Reading books</li>
-          <li>Flower planting</li>
-          <li>Writing poetry</li>
-          <li>Listening to music</li>
-          <li>Moon watching</li>
-        </ul>
-      </section>
+        <section className="hobbies-section column">
+          <h2>🎨 Hobbies</h2>
+          <ul>
+            <li>Reading books</li>
+            <li>Flower planting</li>
+            <li>Writing poetry</li>
+            <li>Listening to music</li>
+            <li>Moon watching</li>
+          </ul>
+        </section>
+      </div>
     </div>
   );
 }

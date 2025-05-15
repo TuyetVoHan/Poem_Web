@@ -1,14 +1,13 @@
 import React from "react";
-import { Link } from "react-router-dom"; // Giả sử dùng react-router-dom
+import { Link } from "react-router-dom";
 import "../styles/HomePage.css";
+import poemsData from "../data/poemsData"; // *** IMPORT DỮ LIỆU THƠ ***
 
 function HomePage() {
-  // Lấy dữ liệu thơ mới nhất/nổi bật (ví dụ)
-  const featuredPoems = [
-    { id: "bai-tho-1", title: "Ái" },
-    { id: "bai-tho-2", title: "Chấp niệm" },
-    { id: "bai-tho-3", title: "Dạo biển" },
-  ];
+  // *** LẤY DỮ LIỆU THƠ NỔI BẬT TỪ poemsData ***
+  // Ví dụ: Lấy 3 bài thơ đầu tiên làm thơ nổi bật
+  // Bạn có thể có logic phức tạp hơn để chọn thơ nổi bật (ví dụ: dựa trên ngày mới nhất, hoặc một trường 'featured' trong poemsData)
+  const featuredPoems = poemsData.slice(1, 4); // Lấy 3 bài đầu tiên
 
   return (
     <div className="homepage-container">
@@ -31,15 +30,27 @@ function HomePage() {
       {/* Phần Thơ Nổi bật / Mới nhất */}
       <section className="featured-poems">
         <h2>Latest Poetry</h2>
-        <ul>
-          {featuredPoems.map((poem) => (
-            <li key={poem.id}>
-              <Link to={`/poems/${poem.id}`}>{poem.title}</Link>
-              {/* Có thể thêm đoạn trích ngắn hoặc ngày đăng */}
-            </li>
-          ))}
-        </ul>
-        <Link to="/poems">View all poems...</Link>
+        {featuredPoems.length > 0 ? ( // Kiểm tra xem có thơ nổi bật không
+          <>
+            <ul>
+              {featuredPoems.map((poem) => (
+                <li key={poem.id}>
+                  <Link to={`/poems/${poem.id}`}>{poem.title}</Link>
+                  {/* Có thể thêm đoạn trích ngắn hoặc ngày đăng nếu muốn */}
+                  {/* <p>{poem.excerpt}</p> */}
+                  {/* <p><small>{poem.date}</small></p> */}
+                </li>
+              ))}
+            </ul>
+            <Link to="/poems" className="view-all-link">
+              {" "}
+              {/* Thêm class để dễ style */}
+              View all poems...
+            </Link>
+          </>
+        ) : (
+          <p>No featured poems available at the moment.</p>
+        )}
       </section>
 
       {/* Có thể thêm lời giới thiệu ngắn về tác giả */}

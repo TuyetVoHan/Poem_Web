@@ -19,7 +19,7 @@ function Header() {
       <div className="header-content">
         {/* Phần tử bên trái: Tên/Logo trang web */}
         <Link to="/" className="site-title">
-          Tuyet Vo Han {/* Thay bằng tên trang web của bạn */}
+          Tuyết Vô Hàn {/* Thay bằng tên trang web của bạn */}
         </Link>
 
         {/* Phần tử bên phải: Menu điều hướng */}

@@ -16,7 +16,7 @@ function ContactPage() {
   // !!! THAY THẾ BẰNG LINK THỰC TẾ CỦA BẠN !!!
   const socialLinks = {
     github: "#",
-    facebook: "#",
+    facebook: "https://www.facebook.com/profile.php?id=61573914602125",
     tiktok: "#",
     email: "#",
   };
@@ -101,31 +101,12 @@ function ContactPage() {
         {/* *** BƯỚC 3: THÊM KHU VỰC ICON LIÊN KẾT *** */}
         <div className="social-links">
           <a
-            href={socialLinks.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub Profile" // Thêm aria-label để tốt cho accessibility
-          >
-            <FaGithub />
-          </a>
-          <a
             href={socialLinks.facebook}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Facebook Profile"
           >
             <FaFacebookF />
-          </a>
-          <a
-            href={socialLinks.tiktok}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="TikTok Profile"
-          >
-            <FaTiktok />
-          </a>
-          <a href={socialLinks.email} aria-label="Send Email">
-            <FaEnvelope />
           </a>
         </div>
       </form>
