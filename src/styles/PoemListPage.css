@@ -24,6 +24,7 @@
   border-radius: 4px;
   width: 100%; /* Input chiếm hết chiều rộng của .filters */
   font-size: 1rem;
+  background: white;
 }
 
 /* --- *** BẮT ĐẦU THAY ĐỔI CHO LAYOUT 2 CỘT *** --- */
