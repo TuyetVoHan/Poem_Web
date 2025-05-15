@@ -1,0 +1,126 @@
+/* src/pages/ContactPage.css */
+
+.contact-container {
+  background-color: var(--white);
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  max-width: 700px; /* Giới hạn chiều rộng form */
+  margin: 20px auto; /* Căn giữa */
+}
+
+.contact-container h1 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+.contact-container p {
+  text-align: center;
+  margin-bottom: 30px;
+  color: var(--grey-text);
+}
+
+.contact-form {
+  /* Không cần style nhiều nếu các group đã có margin */
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: var(--primary-blue);
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 1rem;
+  font-family: inherit; /* Kế thừa font từ body */
+}
+
+.form-group textarea {
+  resize: vertical; /* Cho phép thay đổi chiều cao textarea */
+  min-height: 120px;
+}
+
+.contact-form button[type="submit"] {
+  display: block; /* Button chiếm cả hàng */
+  width: 100%;
+  padding: 12px 20px;
+  font-size: 1.1rem;
+  margin-top: 10px;
+}
+
+/* Kiểu cho thông báo thành công/lỗi */
+.success-message {
+  color: green;
+  background-color: #e9f7ef;
+  border: 1px solid #b7e4c7;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.error-message {
+  color: #a42121;
+  background-color: #fce8e8;
+  border: 1px solid #f4c4c4;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* --- *** THÊM STYLE CHO SOCIAL LINKS *** --- */
+.social-links {
+  text-align: center; /* Căn giữa các icon */
+  margin-top: 30px; /* Khoảng cách trên khu vực icon */
+}
+
+.social-links a {
+  display: inline-block; /* Để các icon xếp hàng ngang và có thể đặt margin */
+  margin: 0 12px; /* Khoảng cách ngang giữa các icon */
+  font-size: 2rem; /* Kích thước icon (điều chỉnh nếu cần) */
+  color: var(--primary-blue); /* Màu icon mặc định */
+  transition: color 0.2s ease-in-out, transform 0.2s ease-in-out; /* Hiệu ứng chuyển màu và phóng to */
+}
+
+.social-links a:hover {
+  color: var(--link-hover-blue); /* Màu icon khi hover */
+  transform: scale(1.15); /* Phóng to nhẹ icon khi hover */
+}
+/* --- *** KẾT THÚC STYLE CHO SOCIAL LINKS *** --- */
+
+/* --- MEDIA QUERY --- (Giữ nguyên hoặc điều chỉnh nếu cần) */
+@media (max-width: 768px) {
+  .contact-container {
+    padding: 20px;
+  }
+  .contact-form {
+    max-width: 100%;
+  }
+  /* Điều chỉnh kích thước icon trên màn hình nhỏ nếu cần */
+  .social-links a {
+    font-size: 1.8rem;
+    margin: 0 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-container {
+    padding: 15px;
+  }
+  /* Điều chỉnh kích thước icon trên màn hình rất nhỏ nếu cần */
+  .social-links a {
+    font-size: 1.6rem;
+    margin: 0 8px;
+  }
+}

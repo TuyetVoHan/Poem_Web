@@ -1,0 +1,114 @@
+/* src/styles/PoemListPage.css */
+
+.poem-list-container h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  /* Bỏ width: 100%; vì h1 là block element mặc định đã rộng 100% */
+}
+
+.filters {
+  margin-bottom: 30px;
+  background-color: var(--white);
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  /* Căn giữa bộ lọc nếu muốn */
+  max-width: 1000px; /* Giới hạn chiều rộng nếu muốn */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.filters input[type="text"] {
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  width: 100%; /* Input chiếm hết chiều rộng của .filters */
+  font-size: 1rem;
+}
+
+/* --- *** BẮT ĐẦU THAY ĐỔI CHO LAYOUT 2 CỘT *** --- */
+.poem-list {
+  list-style: none;
+  padding: 0;
+  display: grid; /* Kích hoạt CSS Grid */
+  grid-template-columns: repeat(2, 1fr); /* Tạo 2 cột bằng nhau */
+  gap: 25px; /* Khoảng cách giữa các bài thơ (ngang và dọc) */
+}
+
+.poem-list-item {
+  background-color: var(--white);
+  padding: 20px;
+  /* margin-bottom: 20px; /* BỎ margin-bottom vì đã có gap */
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.2s ease-in-out;
+  /* Thêm display flex để căn chỉnh nội dung bên trong nếu cần */
+  /* display: flex; */
+  /* flex-direction: column; */
+}
+/* --- *** KẾT THÚC THAY ĐỔI CHO LAYOUT 2 CỘT *** --- */
+
+.poem-list-item:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  background-color: #eaf6fa;
+}
+
+.poem-list-item h2 {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+.poem-list-item h2 a {
+  color: var(--primary-blue);
+  text-decoration: none;
+}
+.poem-list-item h2 a:hover {
+  text-decoration: underline;
+}
+
+.poem-date {
+  font-size: 0.85rem;
+  color: #777;
+  margin-bottom: 10px;
+}
+
+.poem-excerpt {
+  color: var(--grey-text);
+  margin-bottom: 15px;
+  /* Nếu dùng flex cho .poem-list-item, thêm flex-grow để đoạn trích giãn ra */
+  /* flex-grow: 1; */
+}
+
+.read-more-link {
+  font-weight: bold;
+  color: var(--secondary-blue);
+  /* Nếu dùng flex, đảm bảo nút đọc thêm ở cuối */
+  /* align-self: flex-start; */
+}
+.read-more-link:hover {
+  color: var(--link-hover-blue);
+}
+
+/* --- *** THÊM MEDIA QUERY CHO RESPONSIVE *** --- */
+
+/* Cho màn hình nhỏ hơn (ví dụ: máy tính bảng dọc và điện thoại) */
+@media (max-width: 768px) {
+  .poem-list {
+    grid-template-columns: 1fr; /* Chuyển về 1 cột */
+    gap: 20px; /* Có thể giảm khoảng cách một chút */
+  }
+
+  .filters {
+    max-width: 100%; /* Cho phép bộ lọc rộng ra */
+  }
+}
+
+/* Có thể thêm breakpoint khác nếu cần, ví dụ cho điện thoại rất nhỏ */
+/* @media (max-width: 480px) {
+  .poem-list {
+    gap: 15px;
+  }
+  .poem-list-item {
+    padding: 15px;
+  }
+} */

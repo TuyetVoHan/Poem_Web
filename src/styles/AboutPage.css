@@ -1,0 +1,76 @@
+/* src/pages/AboutPage.css */
+
+.about-container {
+  background-color: var(--white);
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.about-container h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.author-intro {
+  /* Cân nhắc dùng flexbox hoặc grid để đặt ảnh và text cạnh nhau */
+  display: flex;
+  align-items: flex-start; /* Căn ảnh và text theo đỉnh */
+  gap: 20px; /* Khoảng cách giữa ảnh và text */
+  margin-bottom: 30px;
+}
+
+.author-photo {
+  max-width: 200px; /* Kích thước ảnh tối đa */
+  height: auto;
+  border-radius: 50%; /* Bo tròn ảnh */
+  border: 3px solid var(--light-blue-bg);
+  flex-shrink: 0; /* Không co ảnh lại khi không đủ chỗ */
+}
+
+.personal-info,
+.favorite-genres,
+.hobbies-section {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px dashed var(--border-color);
+  font-size: 25px;
+}
+
+.milestones ul {
+  list-style: disc;
+  padding-left: 20px;
+}
+
+.userInfoContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  font-family: "Inter", sans-serif; /* Áp dụng font */
+}
+.description {
+  font-size: 20px;
+  font-weight: 500;
+  word-wrap: break-word;
+  margin-bottom: 30px;
+}
+
+.descriptionText {
+  color: black;
+  font-style: italic;
+}
+
+.separator {
+  color: black;
+  margin: 0 10px; /* Khoảng cách hai bên dấu | */
+}
+
+.name {
+  color: #0a749e;
+  font-size: 35px;
+  font-weight: 700;
+  word-wrap: break-word;
+  margin-bottom: 10px;
+}

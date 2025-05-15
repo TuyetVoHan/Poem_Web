@@ -1,0 +1,104 @@
+/* src/pages/HomePage.css */
+
+.hero-section {
+  background-color: var(--light-blue-bg); /* Nền xanh nhạt */
+  padding: 40px 20px;
+  text-align: center;
+  border-radius: 8px;
+  margin-bottom: 30px;
+}
+
+.hero-section h1 {
+  margin-top: 0;
+  color: var(--primary-blue);
+}
+
+.hero-section p {
+  font-size: 1.1rem;
+  color: var(--grey-text);
+}
+
+.hero-section .cta-button {
+  margin-top: 15px;
+}
+
+.featured-poems,
+.quick-about {
+  background-color: var(--white); /* Nền trắng cho các section */
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.quick-about p {
+  font-size: 20px;
+}
+
+.featured-poems h2,
+.quick-about h2 {
+  margin-top: 0;
+  border-bottom: 2px solid var(--light-blue-bg);
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.featured-poems ul {
+  list-style: none;
+  padding: 0;
+}
+
+.featured-poems li {
+  font-size: larger;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed var(--border-color);
+}
+
+.featured-poems li:last-child {
+  border-bottom: none;
+}
+
+.featured-poems a {
+  font-weight: 500;
+}
+
+.greetingContainer {
+  /* Áp dụng các style chung cho cả hai phần text */
+  font-family: "Inter", sans-serif; /* Đảm bảo font được import */
+  font-size: 35px;
+  font-weight: 700; /* Hoặc 'bold' */
+  word-wrap: break-word; /* Hoặc overflow-wrap: break-word; */
+  margin-bottom: 15px; /* Thêm khoảng cách dưới nếu cần */
+  /* Thêm các style khác cho div bao ngoài nếu cần, ví dụ: text-align, padding */
+}
+
+.greetingText {
+  color: black;
+  /* Các thuộc tính font-size, font-family, font-weight được kế thừa từ .greetingContainer */
+}
+
+.greetingName {
+  color: #0a749e;
+  /* Các thuộc tính font-size, font-family, font-weight được kế thừa từ .greetingContainer */
+  /* Thêm khoảng cách nhỏ bên trái nếu cần */
+  /* margin-left: 5px; */
+}
+
+.greetingPenname {
+  /* Áp dụng các style chung cho cả hai phần text */
+  font-family: "Inter", sans-serif; /* Đảm bảo font được import */
+  font-size: 25px;
+  font-weight: 700; /* Hoặc 'bold' */
+  word-wrap: break-word; /* Hoặc overflow-wrap: break-word; */
+  margin-bottom: 15px; /* Thêm khoảng cách dưới nếu cần */
+  /* Thêm các style khác cho div bao ngoài nếu cần, ví dụ: text-align, padding */
+}
+
+.penname {
+  color: black;
+}
+
+.pename {
+  color: #0a749e;
+}

@@ -1,0 +1,134 @@
+/* src/pages/PoemDetailPage.css */
+
+.poem-detail-container {
+  background-color: var(--white);
+  padding: 30px; /* Giữ padding */
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  width: 100%; /* Chiếm toàn bộ chiều rộng của .main-content */
+  /* Bỏ: max-width: 800px; */
+  /* Bỏ: margin: 20px auto; */
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 25px;
+  color: var(--grey-text);
+  font-size: 1.1rem;
+}
+.back-link:hover {
+  color: var(--dark-text);
+}
+
+/* *** THÊM Wrapper để giới hạn chiều rộng nội dung chữ *** */
+.poem-content-wrapper {
+  max-width: 800px; /* Giới hạn chiều rộng phần chữ để dễ đọc */
+  margin: 0 auto; /* Căn giữa phần chữ */
+}
+
+.poem-content-wrapper h1 {
+  margin-top: 0;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.poem-meta {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #777;
+  margin-bottom: 30px;
+}
+
+.poem-text {
+  /* *** CẬP NHẬT FONT-FAMILY *** */
+  /* Ưu tiên các font serif phổ biến hỗ trợ tiếng Việt tốt */
+  font-family: "Esteban", serif;
+  font-size: 1.3rem;
+  line-height: 1.8;
+  color: var(--dark-text);
+  white-space: pre-wrap; /* Giữ nguyên để bảo toàn định dạng thơ */
+  text-align: center; /* Hoặc left nếu bạn muốn căn trái */
+  margin-top: 20px;
+  word-wrap: break-word; /* Thêm thuộc tính này để tránh tràn chữ ngang */
+}
+.comments-section {
+  /* Giữ nguyên */
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-color);
+}
+
+/* --- *** THÊM STYLE CHO KHU VỰC GÓP Ý *** --- */
+.feedback-section {
+  margin-top: 40px; /* Khoảng cách với phần nội dung thơ */
+  padding-top: 30px; /* Khoảng cách bên trong phía trên */
+  border-top: 1px solid var(--border-color); /* Đường kẻ phân cách */
+  /* Căn giữa nội dung trong wrapper nếu muốn */
+  /* max-width: 800px; /* Giữ chiều rộng giống poem-content-wrapper */
+  /* margin-left: auto; */
+  /* margin-right: auto; */
+}
+
+.feedback-section h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: var(--primary-blue);
+  text-align: left; /* Đảm bảo tiêu đề căn trái */
+  font-size: 1.4rem;
+}
+
+.feedback-section textarea {
+  display: block; /* Để chiếm hết chiều rộng */
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  font-family: inherit; /* Kế thừa font từ body/container */
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 15px;
+  resize: vertical; /* Cho phép thay đổi chiều cao */
+  min-height: 80px; /* Chiều cao tối thiểu */
+}
+
+.feedback-section button {
+  /* Kế thừa style button chung hoặc định nghĩa riêng */
+  /* Ví dụ: căn phải nút */
+  display: block; /* Hoặc inline-block */
+  margin-left: auto; /* Căn phải nếu là block */
+  /* Hoặc sử dụng style button chung: */
+  /* padding: 10px 20px; */
+  /* font-size: 1rem; */
+  /* ... */
+}
+
+/* --- *** KẾT THÚC STYLE CHO KHU VỰC GÓP Ý *** --- */
+
+/* --- MEDIA QUERIES --- (Giữ nguyên hoặc điều chỉnh nếu cần) */
+@media (max-width: 768px) {
+  .poem-detail-container {
+    padding: 20px;
+  }
+  .poem-content-wrapper {
+    max-width: 100%;
+  }
+  .feedback-section h3 {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .poem-detail-container {
+    padding: 15px;
+  }
+  .poem-text {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+  .feedback-section h3 {
+    font-size: 1.2rem;
+  }
+  .feedback-section textarea {
+    padding: 10px;
+  }
+}
